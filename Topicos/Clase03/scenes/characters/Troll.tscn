@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c6tmubv1qiu63"]
+
+[ext_resource type="Script" uid="uid://bfxb6f7fd0d4m" path="res://scripts/Troll.gd" id="1_5avvr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_troll"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_troll"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Troll" type="CharacterBody2D" unique_id=886045123]
+script = ExtResource("1_5avvr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2500670]
+shape = SubResource("CapsuleShape2D_troll")
+
+[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=246960585]
+sprite_frames = SubResource("SpriteFrames_troll")
+animation = &"idle"
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=405999445]
+offset_left = -50.0
+offset_top = -80.0
+offset_right = 50.0
+offset_bottom = -65.0
+max_value = 200.0
+value = 200.0
+show_percentage = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2128821819]

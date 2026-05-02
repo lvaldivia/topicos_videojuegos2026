@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dx5ud7l6tavek"]
+
+[ext_resource type="Texture2D" uid="uid://dsls0jebvh3oi" path="res://luigui.png" id="1_6b764"]
+[ext_resource type="Script" uid="uid://dsbo6k1dinwm4" path="res://Scripts/luigi_body.gd" id="1_pypvf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pypvf"]
+size = Vector2(87, 167)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcneq"]
+size = Vector2(32, 662)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri8gf"]
+size = Vector2(51.5, 643)
+
+[node name="Escena1" type="Node2D" unique_id=1155992832]
+
+[node name="LuigiBody" type="CharacterBody2D" parent="." unique_id=1652253436]
+script = ExtResource("1_pypvf")
+speed = 200.0
+
+[node name="LuiguiSprite" type="Sprite2D" parent="LuigiBody" unique_id=445510428]
+position = Vector2(83, 101)
+scale = Vector2(0.2672414, 0.2672414)
+texture = ExtResource("1_6b764")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LuigiBody" unique_id=1845531977]
+position = Vector2(83.5, 100.5)
+shape = SubResource("RectangleShape2D_pypvf")
+
+[node name="ParedIzquierda" type="StaticBody2D" parent="." unique_id=1417533280]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedIzquierda" unique_id=1743223903]
+position = Vector2(6, 321)
+shape = SubResource("RectangleShape2D_pcneq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1457605626]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=550641233]
+position = Vector2(1140, 319)
+shape = SubResource("RectangleShape2D_ri8gf")

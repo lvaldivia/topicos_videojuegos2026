@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://chao5rlvmah6g"]
+
+[ext_resource type="Script" uid="uid://cjnetq8cxp5dp" path="res://scripts/character.gd" id="1_33yfd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fuqhm"]
+
+[node name="CharacterBase" type="Node2D" unique_id=1411892877]
+
+[node name="Character" type="CharacterBody2D" parent="." unique_id=940068478]
+script = ExtResource("1_33yfd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character" unique_id=509595363]
+shape = SubResource("CapsuleShape2D_fuqhm")
+
+[node name="Animation" type="AnimatedSprite2D" parent="Character" unique_id=659976631]
+
+[node name="HealthBar" type="ProgressBar" parent="Character" unique_id=1938024469]
+visible = false
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Character" unique_id=1949766261]
