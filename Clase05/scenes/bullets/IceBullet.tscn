@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxx31s7eqbynm"]
 
-[ext_resource type="Script" uid="uid://c5q7dso864r33" path="res://scripts/IceBullet.gd" id="1_kjtvf"]
+[ext_resource type="Script" uid="uid://c5q7dso864r33" path="res://scripts/Objects/Bullets/IceBullet.gd" id="1_kjtvf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cva03"]
 radius = 6.0
