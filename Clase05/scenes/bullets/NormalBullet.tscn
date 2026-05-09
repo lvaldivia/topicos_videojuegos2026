@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ciww2n7ltn361"]
+
+[ext_resource type="Script" uid="uid://bt1jl8aeyoxu1" path="res://scripts/NormalBullet.gd" id="1_g07y8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cva03"]
+radius = 6.0
+
+[node name="NormalBullet" type="Area2D" unique_id=845162179]
+script = ExtResource("1_g07y8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=481157293]
+shape = SubResource("CircleShape2D_cva03")
+
+[node name="Visual" type="ColorRect" parent="." unique_id=1797528424]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
