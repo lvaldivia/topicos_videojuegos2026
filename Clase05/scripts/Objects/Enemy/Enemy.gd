@@ -3,16 +3,24 @@ extends CharacterBody2D
 
 @export var max_health: int = 60
 @export var speed :float =80.0
-@export var damaage: int = 10
-@export var score_value = int = 10
+@export var damage: int = 10
+@export var score_value:int = 10
+@export var attack_range: float = 45.0
+@export var attack_rate:float = 1.5
+
 @onready var visual:ColorRect = $Visual
 @onready var health_bar:ProgressBar = $HealthBar
+
 var current_health : int
 var is_alive: bool = true
 var _dot_timer:float = 0.0
 var _dot_duration:float = 0.0
 var _slow_timer:float = 0.0
 var _base_speed: float = 0.0
+var _dot_damage:float = 0.0
+var _atk_timer:float = 0.0
+
+signal enemiy_died(who:Enemy)
 
 func _ready()->void:
 		_setup()
@@ -27,16 +35,27 @@ func _setup()->void:
 
 func _process(delta: float) -> void:
 	if not is_alive: return
+	_atk_timer -=delta
 	_process_dots(delta)
 	_proces_slow(delta)
 	_move_towards_player(delta)
 
 func _move_towards_player(delta:float)->void:
 	var players = get_tree().get_nodes_in_group("player")
-	if players.is_empty():return
+	if players.is_empty():
+		velocity = Vector2.ZERO
+		return
 	var player:Player = players[0]
 	var dir:Vector2 = (player.global_position - global_position).normalized()
-	velocity = dir * speed
+	var dist:float = global_position.distance_to(player.global_position)
+	
+	if dist > attack_range:
+		velocity = dir * speed
+	else:	
+		velocity = Vector2.ZERO
+		if _atk_timer <= 0.0:
+			_atk_timer = attack_range
+			player.take_damage(damage)
 	move_and_slide()
 	
 func _process_dots(delta:float)->void:
@@ -64,4 +83,24 @@ func take_damage(amount:int):
 		die()
 
 func die()->void:
-	pass
+	is_alive = false
+	enemiy_died.emit(self)
+	GameManager.add_score(score_value)
+	GameManager.enemies_alive -= 1
+	if visual: visual.color = Color(0.3,0.3,0.3)
+	await get_tree().create_timer(0.3).timeout
+	queue_free()
+	
+func apply_burn(dps:int,duration:float)->void:
+	_dot_damage = dps
+	_dot_duration = duration
+	_dot_timer = 0.0
+	
+func apply_poison(dps:int,duration:float)->void:
+	_dot_damage = dps
+	_dot_duration = duration
+	_dot_timer = 0.0
+
+func apply_slow(factor:float,duration:float)->void:
+	speed = _base_speed * factor
+	_slow_timer = duration

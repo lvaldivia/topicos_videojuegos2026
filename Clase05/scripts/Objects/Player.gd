@@ -73,7 +73,7 @@ func _update_color()->void:
 		
 func take_damage(amount:int)->void:
 	if not is_alive: return
-	current_bullet = clamp(current_bullet-amount,0,max_health)
+	current_health = clamp(current_health-amount,0,max_health)
 	health_bar.value = current_health
 	health_changed.emit(current_health,max_health)
 	if current_health <=0:

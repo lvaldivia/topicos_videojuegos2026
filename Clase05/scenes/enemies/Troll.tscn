@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c07v7apw55f6f"]
+
+[ext_resource type="Script" uid="uid://dcq5h7p66d3i1" path="res://scripts/Objects/Enemy/Goblin.gd" id="1_pk1ld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cjhk"]
+size = Vector2(38, 39)
+
+[node name="Troll" type="CharacterBody2D" unique_id=1898276045]
+script = ExtResource("1_pk1ld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1202151700]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_0cjhk")
+
+[node name="Visual" type="ColorRect" parent="." unique_id=1723511415]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=680374101]
+offset_left = -21.0
+offset_top = -47.0
+offset_right = 20.0
+offset_bottom = -22.0
+show_percentage = false
