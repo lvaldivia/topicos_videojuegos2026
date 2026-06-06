@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cyfddxnqr8gnt"]
+
+[ext_resource type="Script" uid="uid://daw7xvsik5ksr" path="res://scripts/Player.gd" id="1_p0vlq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q5h1"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1588036352]
+script = ExtResource("1_p0vlq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1635082947]
+shape = SubResource("RectangleShape2D_5q5h1")
+
+[node name="Visual" type="ColorRect" parent="." unique_id=1424180961]
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1675147196]
+offset_left = -3.0
+offset_top = -28.0
+offset_right = 1.0
+offset_bottom = -15.0
+show_percentage = false
+
+[node name="StateLabel" type="Label" parent="." unique_id=730796408]
+offset_left = -20.0
+offset_top = 7.0
+offset_right = 21.0
+offset_bottom = 30.0

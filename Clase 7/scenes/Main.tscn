@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://main_base_patrones"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_main"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 32.0
+text = "Score: 0"
+
+[node name="LevelLabel" type="Label" parent="HUD"]
+offset_left = 10.0
+offset_top = 34.0
+offset_right = 200.0
+offset_bottom = 56.0
+text = "Nivel: 1"
+
+[node name="HPLabel" type="Label" parent="HUD"]
+offset_left = 10.0
+offset_top = 58.0
+offset_right = 200.0
+offset_bottom = 80.0
+text = "HP: -"

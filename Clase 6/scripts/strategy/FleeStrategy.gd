@@ -1,0 +1,15 @@
+class_name FleeStrategy
+
+extends AIStrategy
+func execute(_enemy:CharacterBody2D,_delta:float)->void:
+	var player = find_player(_enemy)
+	if not player:
+		_enemy.velocity= Vector2.ZERO
+		return
+	var dir = (_enemy.global_position - player.global_position).normalized()
+	_enemy.velocity = dir * 100.0
+	_enemy.move_and_slide()
+	if _enemy.has_node('Visual'):
+		_enemy.get_node('Visual').color = Color(1.0,0.85,0.1)
+
+func get_name()->String: return "FLEE"

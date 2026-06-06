@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://1qe0flhfoyod"]
+
+[ext_resource type="Script" uid="uid://bo4ref0ihd03w" path="res://scripts/main.gd" id="1_0bbpv"]
+[ext_resource type="PackedScene" uid="uid://cyfddxnqr8gnt" path="res://scenes/Player.tscn" id="1_rvslj"]
+[ext_resource type="PackedScene" uid="uid://cb0kcdocesrvj" path="res://scenes/Enemy.tscn" id="2_rvslj"]
+[ext_resource type="Script" uid="uid://cgb3lvlrxu3wd" path="res://scripts/HUD.gd" id="4_rarhs"]
+
+[node name="Main" type="Node2D" unique_id=2070304274]
+script = ExtResource("1_0bbpv")
+
+[node name="Player" parent="." unique_id=1588036352 instance=ExtResource("1_rvslj")]
+position = Vector2(358, 113)
+
+[node name="Enemy" parent="." unique_id=1423955216 instance=ExtResource("2_rvslj")]
+position = Vector2(595, 104)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=793455468]
+script = ExtResource("4_rarhs")
+
+[node name="HPLabel" type="Label" parent="HUD" unique_id=1022150788]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "HP: 100/100"
+
+[node name="ScoraLabel" type="Label" parent="HUD" unique_id=1540198150]
+offset_left = -1.0
+offset_top = 36.0
+offset_right = 91.0
+offset_bottom = 59.0
+text = "Score: 0"
+
+[node name="StateLabel" type="Label" parent="HUD" unique_id=148086057]
+offset_left = -1.0
+offset_top = 82.0
+offset_right = 91.0
+offset_bottom = 105.0
+text = "Estado: IdleState"
+
+[node name="StrategyLabel" type="Label" parent="HUD" unique_id=727740879]
+offset_left = -2.0
+offset_top = 138.0
+offset_right = 128.0
+offset_bottom = 161.0
+text = "IA Enemigo: PATROL"
