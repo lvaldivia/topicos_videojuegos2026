@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c4qcr7yscy71f"]
+
+[ext_resource type="Script" uid="uid://dn66ya4se4fia" path="res://snake/scripts/NormalFood.gd" id="1_blg7v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1ryb"]
+
+[node name="NormalFood" type="CharacterBody2D" unique_id=578904779]
+script = ExtResource("1_blg7v")
+metadata/_custom_type_script = "uid://djuoparyh2a6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=593905559]
+shape = SubResource("RectangleShape2D_t1ryb")
+
+[node name="Visual" type="ColorRect" parent="." unique_id=163301072]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=888273954]
+offset_left = -3.0
+offset_top = -25.0
+offset_right = 1.0
+offset_bottom = -14.0
+show_percentage = false

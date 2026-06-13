@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://jq0r4r1mh7rx"]
+
+[node name="SnakeSegment" type="Node2D" unique_id=1865192026]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=29652466]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0.101960786, 0.6509804, 0.101960786, 1)
