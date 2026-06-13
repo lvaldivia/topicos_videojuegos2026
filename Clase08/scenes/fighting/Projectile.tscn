@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c2v2bnjsgf84d"]
+
+[ext_resource type="Texture2D" uid="uid://dcts54uhidkf7" path="res://assets/sprites/fx/projectile.png" id="2_tex"]
+
+[sub_resource type="CircleShape2D" id="Circle_1"]
+radius = 14.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tex")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Projectile" type="CharacterBody2D" unique_id=869754355]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=633702918]
+shape = SubResource("Circle_1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1069222623]
+sprite_frames = SubResource("SpriteFrames_1")
+animation = &"idle"
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1213899702]
+visible = false
+max_value = 1.0
+value = 1.0
+
+[node name="Visual" type="ColorRect" parent="." unique_id=132691384]
+visible = false
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0

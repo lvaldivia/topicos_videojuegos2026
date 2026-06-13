@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://bonrwcsmbu5ir"]
+
+[ext_resource type="Texture2D" uid="uid://co0smujaojptw" path="res://assets/sprites/cpu/idle.png" id="2_idle"]
+[ext_resource type="Texture2D" uid="uid://dl8b1080cwq4b" path="res://assets/sprites/cpu/walk1.png" id="3_walk1"]
+[ext_resource type="Texture2D" uid="uid://dioe13h64mxir" path="res://assets/sprites/cpu/walk2.png" id="4_walk2"]
+[ext_resource type="Texture2D" uid="uid://b342ig86fj0ao" path="res://assets/sprites/cpu/jump.png" id="5_jump"]
+[ext_resource type="Texture2D" uid="uid://g157pxce0bwo" path="res://assets/sprites/cpu/light_attack.png" id="6_light_attack"]
+[ext_resource type="Texture2D" uid="uid://d2t6gwrx2ehha" path="res://assets/sprites/cpu/heavy_attack.png" id="7_heavy_attack"]
+[ext_resource type="Texture2D" uid="uid://bnt8bvj574e8w" path="res://assets/sprites/cpu/block.png" id="8_block"]
+[ext_resource type="Texture2D" uid="uid://d2yqhi7vfnt6y" path="res://assets/sprites/cpu/hurt.png" id="9_hurt"]
+[ext_resource type="Texture2D" uid="uid://bxoirhsw6oq3p" path="res://assets/sprites/cpu/ko.png" id="10_ko"]
+
+[sub_resource type="RectangleShape2D" id="Rect_body"]
+size = Vector2(28, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_block")
+}],
+"loop": true,
+"name": &"block",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_heavy_attack")
+}],
+"loop": false,
+"name": &"heavy_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_hurt")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_idle")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jump")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ko")
+}],
+"loop": false,
+"name": &"ko",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_light_attack")
+}],
+"loop": false,
+"name": &"light_attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_walk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_walk2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[node name="CPUFighter" type="CharacterBody2D" unique_id=1370012224]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=887408666]
+position = Vector2(0, -44)
+shape = SubResource("Rect_body")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=772125591]
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_1")
+animation = &"walk"
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=63901169]
+visible = false
+value = 100.0
+
+[node name="Visual" type="ColorRect" parent="." unique_id=10552278]
+visible = false
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0

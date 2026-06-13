@@ -1,0 +1,129 @@
+[gd_scene load_steps=13 format=3 uid="uid://playerfighterfight"]
+
+[ext_resource type="Script" path="res://scripts/fighting/Fighter.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/idle.png" id="2_idle"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/walk1.png" id="3_walk1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/walk2.png" id="4_walk2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/jump.png" id="5_jump"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/light_attack.png" id="6_light_attack"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/heavy_attack.png" id="7_heavy_attack"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/block.png" id="8_block"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/hurt.png" id="9_hurt"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/ko.png" id="10_ko"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1"]
+animations = [
+{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_idle")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_walk1")
+},
+{
+"duration": 1.0,
+"texture": ExtResource("4_walk2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jump")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_light_attack")
+}],
+"loop": false,
+"name": &"light_attack",
+"speed": 8.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_heavy_attack")
+}],
+"loop": false,
+"name": &"heavy_attack",
+"speed": 5.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_block")
+}],
+"loop": true,
+"name": &"block",
+"speed": 5.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_hurt")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ko")
+}],
+"loop": false,
+"name": &"ko",
+"speed": 5.0
+}
+]
+
+[sub_resource type="RectangleShape2D" id="Rect_body"]
+size = Vector2(28, 88)
+
+[sub_resource type="RectangleShape2D" id="Rect_hitbox"]
+size = Vector2(40, 60)
+
+[node name="PlayerFighter" type="CharacterBody2D"]
+script = ExtResource("1_script")
+is_player_controlled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -44)
+shape = SubResource("Rect_body")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_1")
+animation = &"idle"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
+max_value = 100
+value = 100
+
+[node name="Visual" type="ColorRect" parent="."]
+visible = false
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, -44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("Rect_hitbox")
