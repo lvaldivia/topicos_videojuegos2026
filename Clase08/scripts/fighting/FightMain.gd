@@ -31,6 +31,8 @@ func _ready() -> void:
 	
 func on_fighter_died(who:BaseEntity)->void:
 	if GameManager.is_game_over:return
+	if who == cpu:
+		GameManager.end_round("player")
 	if who == player:
 		GameManager.end_round("cpu")
 
@@ -58,7 +60,9 @@ func _decide_by_time()->void:
 	
 func _reset_fighter()->void:
 	_reset_one(player,Vector2(200,player.ground_y))
+	_reset_one(cpu,Vector2(600,player.ground_y))
 	hud.on_player_hp(player.current_health,player.max_health)
+	hud.on_cpu_hp(cpu.current_health,cpu.max_health)
 
 func _reset_one(f:PlayerFighter,pos:Vector2)->void:
 	f.current_health = f.max_health
@@ -72,4 +76,9 @@ func _reset_one(f:PlayerFighter,pos:Vector2)->void:
 	f._change_state(idle)
 	
 func _update_cpu_strategy()->void:
-	pass
+	var desired:AIStrategy;
+	desired = AgressiveStrategy.new()
+	if cpu.ai_strategy == null or cpu.ai_strategy.get_name() != desired.get_name():
+		cpu.set_ai_strategy(desired)
+		hud.on_cpu_strategy(desired.get_name())
+		

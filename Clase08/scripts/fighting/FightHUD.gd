@@ -13,7 +13,7 @@ extends BaseHUD
 func _ready() -> void:
 	GameManager.round_time_changed.connect(on_time_changed)
 	GameManager.round_started.connect(on_round_started)
-	GameManager.round_started.connect(on_round_ended)
+	GameManager.round_ended.connect(on_round_ended)
 	GameManager.wins_changed.connect(on_wins_changed)
 	if message_label:
 		message_label.visible = false
@@ -55,5 +55,11 @@ func on_cpu_hp(current:int,max_hp:int)->void:
 	if cpu_hp_bar:
 		cpu_hp_bar.max_value =max_hp
 		cpu_hp_bar.value = current
-	
 		
+func on_cpu_strategy(strategy_name:String)->void:
+	if strategy_label:
+		strategy_label.text = "IA CPU :" + strategy_name
+	
+func hide_message()->void:
+	if message_label:
+		message_label.visible = false

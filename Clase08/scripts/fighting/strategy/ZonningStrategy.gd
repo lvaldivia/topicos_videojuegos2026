@@ -14,9 +14,9 @@ func execute(_entity: BaseEntity, _delta: float) -> void:
 	if dist < ideal - 20.0:
 		fighter.ai_input.move  = -sign(diff)
 	elif dist > ideal + 20.0:
-		fighter.ai_input = sign(diff)
+		fighter.ai_input.move = sign(diff)
 	else :
-		fighter.ai_input = 0.0
+		fighter.ai_input.move = 0.0
 	if _timer <= 0.0 and dist > 90.0:
 		_timer = 1.4
 		fighter.ai_input.special = true
