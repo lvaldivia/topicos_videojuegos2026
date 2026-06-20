@@ -1,0 +1,3 @@
+res://scenes/fighting/FightMain.tscn
+res://scripts/fighting/states/FighterIdleScene.gd
+res://scripts/fighting/states/FighterWalkState.gd

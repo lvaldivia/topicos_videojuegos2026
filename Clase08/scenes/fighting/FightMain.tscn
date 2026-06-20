@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://fightmain"]
 
+[ext_resource type="PackedScene" uid="uid://dkbhkrmk4e4t6" path="res://scenes/fighting/PlayerFighter.tscn" id="2_lpr3p"]
 [ext_resource type="Texture2D" uid="uid://b03kw7l2qld3v" path="res://assets/sprites/bg/stage.png" id="3_bg"]
 
 [node name="FightMain" type="Node2D" unique_id=498862678]
@@ -7,6 +8,9 @@
 [node name="Background" type="Sprite2D" parent="." unique_id=317147700]
 position = Vector2(400, 200)
 texture = ExtResource("3_bg")
+
+[node name="PlayerFighter" parent="." unique_id=306061210 instance=ExtResource("2_lpr3p")]
+position = Vector2(137, 277)
 
 [node name="Ground" type="ColorRect" parent="." unique_id=1995453085]
 offset_top = 388.0

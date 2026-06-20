@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c2v2bnjsgf84d"]
 
+[ext_resource type="Script" uid="uid://chti8a0mx4n77" path="res://scripts/fighting/Projectile.gd" id="1_4jtlq"]
 [ext_resource type="Texture2D" uid="uid://dcts54uhidkf7" path="res://assets/sprites/fx/projectile.png" id="2_tex"]
 
 [sub_resource type="CircleShape2D" id="Circle_1"]
@@ -19,6 +20,7 @@ animations = [{
 [node name="Projectile" type="CharacterBody2D" unique_id=869754355]
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("1_4jtlq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=633702918]
 shape = SubResource("Circle_1")

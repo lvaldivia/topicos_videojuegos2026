@@ -27,6 +27,10 @@ GameManager="*res://scripts/creation/GameManager.gd"
 window/size/viewport_width=800
 window/size/viewport_height=400
 
+[editor]
+
+version_control/plugin_name="Git"
+
 [input]
 
 p1_left={
