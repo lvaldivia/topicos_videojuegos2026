@@ -20,7 +20,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
-GameManager="*res://scripts/creation/GameManager.gd"
+GameManager="*uid://cr8ami4v6slgw"
 
 [display]
 

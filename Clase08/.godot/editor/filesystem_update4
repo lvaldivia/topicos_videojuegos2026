@@ -1,3 +1,12 @@
 res://scenes/fighting/FightMain.tscn
 res://scripts/fighting/states/FighterIdleScene.gd
 res://scripts/fighting/states/FighterWalkState.gd
+res://scenes/fighting/PlayerFighter.tscn
+res://scripts/fighting/FightMain.gd
+res://scripts/fighting/FightHUD.gd
+res://scripts/fighting/GameManager.gd
+res://scripts/fighting/element/Fighter.gd
+res://scenes/fighting/CPUFighter.tscn
+res://scripts/fighting/strategy/ZonningStrategy.gd
+res://scripts/fighting/strategy/AgressiveStrategy.gd
+res://scripts/fighting/strategy/DefensiveStrategy.gd

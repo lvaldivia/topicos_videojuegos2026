@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkbhkrmk4e4t6"]
 
-[ext_resource type="Script" uid="uid://dnub51n4bovsa" path="res://scripts/fighting/Fighter.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://dnub51n4bovsa" path="res://scripts/fighting/element/Fighter.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://dlj36lkdrvn4x" path="res://assets/sprites/player/idle.png" id="2_idle"]
 [ext_resource type="Texture2D" uid="uid://cjjjjdy0rl81v" path="res://assets/sprites/player/walk1.png" id="3_walk1"]
 [ext_resource type="Texture2D" uid="uid://b2wfnl38o1447" path="res://assets/sprites/player/walk2.png" id="4_walk2"]

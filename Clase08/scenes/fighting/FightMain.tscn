@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://fightmain"]
 
-[ext_resource type="PackedScene" uid="uid://dkbhkrmk4e4t6" path="res://scenes/fighting/PlayerFighter.tscn" id="2_lpr3p"]
+[ext_resource type="Script" uid="uid://c24fa8hokaqo5" path="res://scripts/fighting/FightMain.gd" id="1_lpr3p"]
+[ext_resource type="Script" uid="uid://desowk4yhsklp" path="res://scripts/fighting/FightHUD.gd" id="3_3dvqy"]
 [ext_resource type="Texture2D" uid="uid://b03kw7l2qld3v" path="res://assets/sprites/bg/stage.png" id="3_bg"]
 
 [node name="FightMain" type="Node2D" unique_id=498862678]
+script = ExtResource("1_lpr3p")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=317147700]
 position = Vector2(400, 200)
 texture = ExtResource("3_bg")
-
-[node name="PlayerFighter" parent="." unique_id=306061210 instance=ExtResource("2_lpr3p")]
-position = Vector2(137, 277)
 
 [node name="Ground" type="ColorRect" parent="." unique_id=1995453085]
 offset_top = 388.0
@@ -19,6 +18,7 @@ offset_bottom = 400.0
 color = Color(0.25, 0.18, 0.1, 1)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1202082009]
+script = ExtResource("3_3dvqy")
 
 [node name="PlayerHPBar" type="ProgressBar" parent="HUD" unique_id=197981540]
 offset_left = 16.0

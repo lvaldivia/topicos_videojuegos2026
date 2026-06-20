@@ -50,7 +50,6 @@ func set_ai_strategy(strategy:AIStrategy)->void:
 	ai_strategy = strategy
 	
 func get_input() ->Dictionary:
-	print(is_player_controlled)
 	if is_player_controlled:
 		return{
 			"move" : Input.get_axis("p1_left","p1_right"),

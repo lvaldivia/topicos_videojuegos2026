@@ -22,4 +22,7 @@ func get_next() -> EntityState:
 func update(delta:float)->void:
 	fighter.apply_gravity(delta)
 	fighter.move_and_slide()
+	var inp = fighter.get_input()
+	if inp.special and fighter.can_fire_special():
+		fighter.fire_projectile()
 	
